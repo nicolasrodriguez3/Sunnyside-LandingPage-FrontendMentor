@@ -10,7 +10,7 @@ Frontend Mentor ayuda a mejorar tus habilidades mediante la realización de proy
   - [Screenshot](#screenshot)
   - [Link](#link)
 - [Proceso](#Proceso)
-  - [Construido con:](#Construido-con:)
+  - [Construido con:](#Construido-con)
   - [Que aprendi con este proyecto](#Que-aprendi-con-este-proyecto)
   - [Recurtsos útiles](#recursos-útiles)
 - [Comunicate conmigo](#Comunicate-conmigo)
