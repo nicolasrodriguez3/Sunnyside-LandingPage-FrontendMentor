@@ -1,5 +1,6 @@
 @import url(normalize.css);
 @import url("https://fonts.googleapis.com/css2?family=Barlow:wght@600&family=Fraunces:wght@700;900&display=swap");
+
 :root {
 	--barlow: "Barlow", sans-serif;
 	--fraunces: "Fraunces", serif;
@@ -7,6 +8,7 @@
 html {
   scroll-behavior: smooth;
 }
+/* ancho maximo del sitio */
 .max-w{
 	max-width: 1440px;
 	margin: 0 auto;
@@ -15,16 +17,19 @@ body {
 	font-family: var(--barlow);
 	background-color: #3ebfff;
 }
-main.container {
-	background-color: #fffbf8;
-	display: flex;
-	flex-direction: column;
-}
+
+/********************************************
+** HOME
+**********************************************/
+
 .home {
 	background: #3ebfff url(../images/mobile/image-header.jpg) no-repeat center;
 	background-size: cover;
   min-height: 100vh;
+	position: relative;
 }
+
+/****** header home ********/
 .main-header {
 	display: flex;
 	justify-content: space-between;
@@ -32,9 +37,12 @@ main.container {
 	height: 75px;
 	padding: 0 2rem;
 }
+/* ocultar uno de los nav en vista mobile */
 .nav-header-desktop{
 	display: none;
 }
+
+/************ NAV MOBILE *******/
 .nav-header-mobile{
   position: absolute;
   width: 80%;
@@ -50,7 +58,6 @@ main.container {
   align-items: center;
   gap: 1.2rem;
   padding: 3rem 0;
-
 }
 .nav-header-mobile::before{
   content: "";
@@ -69,12 +76,13 @@ main.container {
 .burger img{
   cursor: pointer;
 }
-/* .burger:focus .nav-header{
-  display: flex;
-} */
+
+/* Esta clase se agrega con JS al presionar el boton burger */
 .show{
 	display: flex!important;
 }
+
+/* Boton agregado para simular el cierre del menu de navegacion */
 .close{
 	position: absolute;
 	top: 10px;
@@ -85,6 +93,8 @@ main.container {
 	cursor: pointer;
 	font-size: 1.5rem;
 }
+
+/* Links */
 .nav-header a {
   color: hsl(232, 10%, 55%);
 	text-decoration: none;
@@ -105,13 +115,17 @@ main.container {
 	background-color: hsla(51, 100%, 49%, 0.5);
 	color: #000;
 }
+
 .titulo {
 	text-align: center;
-	margin: 5rem auto;
 	padding: 1rem;
 	color: #fff;
-	font: 3rem var(--fraunces);
+	font: 2.7rem var(--fraunces);
 	text-transform: uppercase;
+	position: absolute;
+	top: 35vh;
+	transform: translateY(-50%);
+	width: 100%;
 }
 .flecha {
 	position: absolute;
@@ -124,6 +138,13 @@ main.container {
 }
 @keyframes bounce {
 	80%{bottom: 18%;}
+}
+
+/* contenedor principal con display flex en mobile y desplay grid en desktop */
+main.container {
+	background-color: #fffbf8;
+	display: flex;
+	flex-direction: column;
 }
 .hijo-texto {
 	padding: 1.5rem;
@@ -200,6 +221,11 @@ main.container {
 	left: 50%;
 	transform: translateX(-50%);
 }
+
+/*********************************
+******** testimonios
+***********************************/
+
 .testimonios {
 	padding: 1rem;
 	background-color: hsl(0, 0%, 98%);
@@ -246,11 +272,18 @@ main.container {
 	font: 0.8rem var(--barlow);
 	color: hsl(210, 4%, 67%);
 }
+
+/* imagenes previas al  footer */
+
 .imagenes {
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	grid-template-rows: repeat(2, 55vw);
 }
+
+/***********************************
+* Footer
+***********************************/
 footer {
 	display: flex;
 	justify-content: space-evenly;
@@ -270,6 +303,8 @@ footer {
 .logo-footer img {
 	width: 100%;
 }
+
+/* nav footer */
 .nav-footer {
 	display: flex;
 	flex-flow: row wrap;
@@ -289,6 +324,7 @@ footer {
 	flex-flow: row wrap;
 	gap: 1rem;
 }
+/* para cambiarles el color a los iconos svg */
 .logo-footer img{
   filter: invert(27%) sepia(51%) saturate(1578%) hue-rotate(115deg) brightness(50%) contrast(60%);
 }
@@ -309,18 +345,16 @@ footer {
 }
 
 
-/*********************** Tablet ***********************/
+/************************ Tablet ***********************/
 @media (min-width: 376px) {
-	.nav-header-desktop{
-		display: none;
-	}
   .titulo {
-    font-size: 3rem;
+    font-size: 3.8rem;
   }
+
+	/* cambiar la altura del header */
 	.main-header{
 		height: 100px;
 	}
-
 	.nav-header-desktop a:not(:last-child){
 		color: hsl(0, 0%, 98%);
 	}
@@ -386,12 +420,19 @@ footer {
 	.titulo{
 		font-size: 4.5rem;
 	}
+
+	/*********** MAIN *********/
 	main.container{
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
 	}
+
+	/* cambiar el orden de las imagenes y el texto */
+	.servicio1{
+		grid-area: 1 / 1 / span 1 / span 1;
+	}
 	.servicio2{
-		grid-area: 2 / 1 / span 1 / span 1;
+		grid-area: 2 / 2 / span 1 / span 1;
 	}
 	.hijo-texto{
 		height: auto;
@@ -400,9 +441,13 @@ footer {
 	.servicios .texto{
 		padding: 1.5rem;
 	}
+
+	/* testimonios ocupa las 2 columnas */
 	.testimonios{
-		grid-column: 1 / 3;
+		grid-column: 1 / span 2;
 	}
+
+	/* imagenes previas al footer */
 	.imagenes{
 		/* shorthand for: grid template rows / grid template columns */
 		grid-template: auto / repeat(4, 1fr);
