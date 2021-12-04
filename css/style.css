@@ -445,6 +445,8 @@ footer {
 	/* testimonios ocupa las 2 columnas */
 	.testimonios{
 		grid-column: 1 / span 2;
+		padding: 12vh 0;
+		
 	}
 
 	/* imagenes previas al footer */
