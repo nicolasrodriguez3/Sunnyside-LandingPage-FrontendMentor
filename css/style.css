@@ -452,4 +452,8 @@ footer {
 		/* shorthand for: grid template rows / grid template columns */
 		grid-template: auto / repeat(4, 1fr);
 	}
+	.imagenes img{
+		width: 100%;
+		height: auto;
+	}
 }
