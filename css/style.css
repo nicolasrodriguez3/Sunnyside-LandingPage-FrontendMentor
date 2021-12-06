@@ -62,12 +62,12 @@ body {
 .nav-header-mobile::before{
   content: "";
   position: absolute;
-  background-color: hsl(0, 0%, 98%);
+  /* background-color: hsl(25, 50%, 50%); */
   top: 0;
   right: 0;
   width: 50px;
   height: 50px;
-  transform: skewY(-50deg) scale(1); 
+  transform: skewY(-50deg) scale(1);
 }
 .burger{
   background: none;
@@ -278,7 +278,11 @@ main.container {
 .imagenes {
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
-	grid-template-rows: repeat(2, 55vw);
+	grid-template-rows: repeat(2, auto);
+}
+.imagenes img{
+	width: 100%;
+	object-fit: cover;
 }
 
 /***********************************
@@ -453,9 +457,5 @@ footer {
 	.imagenes{
 		/* shorthand for: grid template rows / grid template columns */
 		grid-template: auto / repeat(4, 1fr);
-	}
-	.imagenes img{
-		width: 100%;
-		height: auto;
 	}
 }
